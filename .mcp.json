@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "phoneos": {
+      "command": "node",
+      "args": ["--env-file-if-exists=.env", "--import", "tsx", "src/agent-interface/mcp-server.ts"],
+      "env": {}
+    }
+  }
+}

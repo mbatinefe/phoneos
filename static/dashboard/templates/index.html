@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Devices · phoneos</title>
+    <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script src="/assets/htmx.min.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="/">__LOGO__<span>phoneos</span></a>
+            <nav class="topbar-nav" aria-label="Main">
+                <a class="nav-link active" href="/" aria-current="page">Devices</a>
+                <a class="nav-link" href="/tasks">Tasks</a>
+                __PLUGIN_NAV____AUTH_NAV__
+            </nav>
+        </div>
+    </header>
+    <main class="shell">
+        <header class="page-header">
+            <div>
+                <h1>Devices</h1>
+                <p>The iPhones this Mac drives. Open one to see and control its screen.</p>
+            </div>
+            <a class="button primary" href="/devices/register">Add a device</a>
+        </header>
+        <section id="device-list" class="device-list" hx-get="/api/fragments/devices" hx-trigger="load" hx-swap="outerHTML" aria-live="polite">
+            <p class="loading"><span class="spinner" aria-hidden="true"></span>Looking for phones…</p>
+        </section>
+    </main>
+    <footer class="app-footer">__FOOTER__</footer>
+</body>
+</html>

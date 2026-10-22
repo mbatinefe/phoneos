@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tasks · phoneos</title>
+    <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="/">__LOGO__<span>phoneos</span></a>
+            <nav class="topbar-nav" aria-label="Main">
+                <a class="nav-link" href="/">Devices</a>
+                <a class="nav-link active" href="/tasks" aria-current="page">Tasks</a>
+                __PLUGIN_NAV____AUTH_NAV__
+            </nav>
+        </div>
+    </header>
+    <main class="shell">
+        <header class="page-header">
+            <div><h1>Tasks</h1><p>App-pack tasks that run on a schedule, on any phone, and what they did.</p></div>
+            <button id="new-schedule" class="button primary" type="button">New schedule</button>
+        </header>
+        <div id="scheduler-banner" class="banner" hidden></div>
+        <section class="card task-section">
+            <div class="card-head"><h2>Schedules</h2><button id="refresh-tasks" class="button plain small" type="button">Refresh</button></div>
+            <div id="schedules" class="task-list"><p class="loading empty"><span class="spinner" aria-hidden="true"></span>Loading…</p></div>
+        </section>
+        <section class="card task-section">
+            <div class="card-head"><h2>Recent runs</h2></div>
+            <div id="executions" class="task-list"><p class="loading empty"><span class="spinner" aria-hidden="true"></span>Loading…</p></div>
+        </section>
+    </main>
+    <dialog id="schedule-dialog" aria-labelledby="schedule-title">
+        <form id="schedule-form" class="modal">
+            <div class="modal-head">
+                <h2 id="schedule-title">New schedule</h2>
+                <button id="close-schedule" class="button plain" type="button">Cancel</button>
+            </div>
+            <div class="field"><label for="schedule-device">Phone</label><select id="schedule-device" required></select></div>
+            <div class="field"><label for="schedule-task">Task</label><select id="schedule-task" required></select><span id="schedule-task-help" class="field-help"></span></div>
+            <div id="schedule-fields" class="schedule-fields-grid"></div>
+            <div class="field">
+                <label for="schedule-kind">When</label>
+                <select id="schedule-kind">
+                    <option value="now">Right away</option>
+                    <option value="once">Once, at a set time</option>
+                    <option value="daily">Every day</option>
+                    <option value="weekly">Every week</option>
+                </select>
+            </div>
+            <div class="field" id="schedule-once-field" hidden><label for="schedule-run-at">Date and time</label><input id="schedule-run-at" type="datetime-local"></div>
+            <div class="field" id="schedule-time-field" hidden><label for="schedule-local-time">Time (this Mac's time zone)</label><input id="schedule-local-time" type="time" value="02:00"></div>
+            <fieldset id="schedule-weekday-field" class="field" hidden><legend>Days</legend><div class="weekday-options" id="schedule-weekdays"></div></fieldset>
+            <div class="field"><label for="schedule-run-window">Run window (minutes)</label><input id="schedule-run-window" type="number" min="1" max="1440" value="30"><span class="field-help">How long after its time a run may still start, if the phone is busy or away.</span></div>
+            <div class="form-actions">
+                <span id="schedule-result" class="run-meta" aria-live="polite"></span><span class="spacer"></span>
+                <button class="button secondary" id="cancel-schedule" type="button">Cancel</button>
+                <button class="button primary" type="submit">Create schedule</button>
+            </div>
+        </form>
+    </dialog>
+    <script type="module" src="/assets/tasks.js"></script>
+    <footer class="app-footer">__FOOTER__</footer>
+</body>
+</html>

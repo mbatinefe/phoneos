@@ -1,0 +1,19 @@
+node_modules/
+.env
+.env.*
+!.env.example
+devices.json
+.wda/
+.phoneos/
+.scheduler-data/
+*.log
+.DS_Store
+# What the phone CLI saves where it runs (screenshots, recordings, pulled files)
+/*.jpg
+/*.jpeg
+/*.png
+/*.mov
+/*.mp4
+/pulled/
+# Local agent settings
+.claude/settings.local.json

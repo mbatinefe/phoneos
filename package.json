@@ -1,0 +1,104 @@
+{
+  "name": "phoneos",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "description": "iPhone control layer for LLM agents and scheduled automation",
+  "files": [
+    "src",
+    "apps",
+    "static",
+    "Patches",
+    "drizzle",
+    "docker-compose.yml",
+    "README.md",
+    "AGENTS.md",
+    "SECURITY.md",
+    "LICENSE",
+    "bin",
+    "scripts",
+    "docs",
+    ".env.example",
+    ".mcp.json",
+    "tsconfig.json",
+    "tsconfig.web.json",
+    "drizzle.config.ts"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./settings": "./apps/settings/pack.ts",
+    "./example-plugin": "./src/example-plugin.ts",
+    "./server": "./src/api/server.ts",
+    "./worker": "./src/scheduler/worker.ts"
+  },
+  "scripts": {
+    "phone": "node bin/phone.js",
+    "demo": "node bin/phone.js demo",
+    "doctor": "node bin/phone.js doctor",
+    "mcp": "node --env-file-if-exists=.env --import tsx src/agent-interface/mcp-server.ts",
+    "wda:prepare": "node --env-file-if-exists=.env --import tsx src/devices/wda/prepare.ts",
+    "wda:start": "node --env-file-if-exists=.env --import tsx src/devices/wda/start.ts",
+    "wda:service": "node --env-file-if-exists=.env --import tsx src/devices/wda-service.ts",
+    "lock:probe": "node --env-file-if-exists=.env --import tsx scripts/lock-probe.ts",
+    "wda:ensure": "node --env-file-if-exists=.env --import tsx src/devices/ensure-wda-service.ts",
+    "wda:stop": "node --env-file-if-exists=.env --import tsx src/devices/stop-wda-service.ts",
+    "db:up": "docker compose up -d --wait postgres",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "node --env-file-if-exists=.env --import tsx src/database/migrate.ts",
+    "db:setup": "node --env-file-if-exists=.env --import tsx src/database/setup.ts",
+    "worker": "node --env-file-if-exists=.env --import tsx src/scheduler/worker.ts",
+    "web": "node --env-file-if-exists=.env --import tsx src/api/server.ts",
+    "build:web": "tsc -p tsconfig.web.json",
+    "preweb": "npm run build:web",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.web.json --noEmit",
+    "test": "node --import tsx --test test/*.test.ts",
+    "check": "npm run typecheck && npm test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^11.1.2",
+    "@fastify/formbody": "^8.0.2",
+    "@fastify/multipart": "^9.4.0",
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "appium-ios-device": "^3.1.21",
+    "cron-parser": "^5.10.0",
+    "drizzle-orm": "^0.45.2",
+    "exiftool-vendored.pl": "13.59.2",
+    "fastify": "^5.12.7",
+    "ffmpeg-static": "5.2.0",
+    "htmx.org": "^2.0.8",
+    "pg": "^8.23.0",
+    "pg-boss": "^12.27.0",
+    "sharp": "^0.35.5",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "@types/pg": "^8.23.1",
+    "drizzle-kit": "^0.31.10",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  },
+  "overrides": {
+    "@esbuild-kit/core-utils": {
+      "esbuild": "0.25.12"
+    },
+    "bplist-creator": "0.1.1",
+    "bplist-parser": "0.3.2",
+    "shell-quote": "^1.11.0"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.2": true,
+    "ffmpeg-static@5.2.0": true,
+    "sharp": false,
+    "core-js": false,
+    "fsevents": false
+  },
+  "bin": {
+    "phone": "./bin/phone.js"
+  }
+}
