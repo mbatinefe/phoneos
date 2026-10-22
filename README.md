@@ -19,9 +19,7 @@
   <img alt="Model Context Protocol" src="https://img.shields.io/badge/MCP-stdio-black">
 </p>
 
-<!-- Launch video: on github.com, edit this file, delete this comment and drop the MP4
-     here; GitHub uploads it and puts its https://github.com/user-attachments/assets/…
-     link on this line, which renders as a player. -->
+https://github.com/user-attachments/assets/bc936c92-83a0-412f-9e64-ece261fb17b1
 
 phoneos lets an AI agent such as Claude Code operate a real iPhone connected to your
 Mac. The agent reads the screen, decides on one step, taps, swipes or types, and reads
