@@ -180,7 +180,7 @@ registered phones.
 - [docs/getting-started.md](docs/getting-started.md): install, real phones, the simulator, other agents, scheduling
 - [docs/architecture.md](docs/architecture.md): processes, layers, the observation format, data
 - [docs/app-packs.md](docs/app-packs.md): write a pack for your own app, and the trust rules
-- [docs/humanizer.md](docs/humanizer.md): how taps, swipes and typing are shaped
+- [docs/humanizer.md](docs/humanizer.md): how taps, swipes and typing are shaped.
 - [docs/video-metadata.md](docs/video-metadata.md): `add_video_metadata` and `normalize_video`
 
 ## Contributing
