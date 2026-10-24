@@ -19,10 +19,7 @@
   <img alt="Model Context Protocol" src="https://img.shields.io/badge/MCP-stdio-black">
 </p>
 
-<p align="center">
-  <a href="https://github.com/user-attachments/assets/bc936c92-83a0-412f-9e64-ece261fb17b1"><img src="docs/assets/phoneos-demo.gif" alt="Demo: an AI agent uses a real iPhone through phoneos, in Instagram, on the lock screen, in Temu and in Booking.com" width="100%"></a><br>
-  <a href="https://github.com/user-attachments/assets/bc936c92-83a0-412f-9e64-ece261fb17b1"><strong>▶ Watch the launch video with sound</strong></a>
-</p>
+https://github.com/user-attachments/assets/bc936c92-83a0-412f-9e64-ece261fb17b1
 
 phoneos is **phone use** for AI agents: what computer use is for a desktop, on a real
 iPhone. It lets an agent such as Claude Code operate an iPhone connected to your Mac.
