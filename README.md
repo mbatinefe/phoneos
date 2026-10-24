@@ -9,7 +9,7 @@
 
 <p align="center">
   <strong>Let your AI agent use your iPhone.</strong><br>
-  Open source. Runs on your Mac. Works with any MCP agent.
+  Open source. Runs on your Mac. Works with any MCP agent. No jailbreak.
 </p>
 
 <p align="center">
@@ -21,9 +21,10 @@
 
 https://github.com/user-attachments/assets/bc936c92-83a0-412f-9e64-ece261fb17b1
 
-phoneos lets an AI agent such as Claude Code operate a real iPhone connected to your
-Mac. The agent reads the screen, decides on one step, taps, swipes or types, and reads
-the screen again, in any app on the phone. Everything runs on your Mac: phoneos keeps
+phoneos is **phone use** for AI agents: what computer use is for a desktop, on a real
+iPhone. It lets an agent such as Claude Code operate an iPhone connected to your Mac.
+The agent reads the screen, decides on one step, taps, swipes or types, and reads the
+screen again, in any app on the phone. Everything runs on your Mac: phoneos keeps
 [WebDriverAgent](https://github.com/appium/WebDriverAgent) running on the phone and
 gives your agent a set of tools over the [Model Context Protocol](https://modelcontextprotocol.io).
 
@@ -173,6 +174,37 @@ daily or weekly.
 
 `.env` holds the host's settings (ports, database, signing); `devices.json` holds the
 registered phones.
+
+## FAQ
+
+### Can Claude control my iPhone?
+
+Yes. Open this repo in Claude Code and it picks up the `phoneos` tools from `.mcp.json`;
+Claude Desktop connects with a local MCP server entry. The agent sees the screen and
+taps, swipes and types in any app on the phone.
+
+### Does it need a jailbreak?
+
+No. phoneos runs WebDriverAgent, a test runner built on Apple's XCTest, signed with your
+own Apple ID: the same way developers run tests on their own phones.
+
+### Does it work with Cursor, Codex, Gemini or other agents?
+
+Yes. Any agent that can start a local MCP server can use it (see [Works with](#works-with)),
+and an agent that runs shell commands can use the `phone` command instead.
+
+### Do I need a Mac?
+
+Yes: macOS with Xcode. The iPhone connects to it over USB.
+
+### Does it work on Android?
+
+No. phoneos drives iPhones only.
+
+### Can I try it without an iPhone?
+
+Yes. `npm run demo` sets up an iOS Simulator and lets your agent drive it; no Apple
+account is needed.
 
 ## Documentation
 
